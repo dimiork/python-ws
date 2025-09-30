@@ -56,7 +56,7 @@ chmod +x $APP_DIR/run_linux.py
 
 # Update systemd service file with correct paths
 print_status "Configuring systemd service..."
-sed "s|/path/to/your/websocket-app|$APP_DIR|g" websocket-app.service > /etc/systemd/system/$SERVICE_NAME.service
+sed "s|__APP_DIR__|$APP_DIR|g" websocket-app.service > /etc/systemd/system/$SERVICE_NAME.service
 
 # Reload systemd and enable service
 print_status "Enabling systemd service..."

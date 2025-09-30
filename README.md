@@ -80,12 +80,26 @@ sudo ./deploy_linux.sh
 ```
 
 ### Manual Production Setup:
+
+#### Option 1: Generate service file with correct paths
+```bash
+# 1. Generate service file with your actual directory
+./generate_service.sh
+
+# 2. Install the generated service
+sudo cp websocket-app-generated.service /etc/systemd/system/websocket-app.service
+sudo systemctl daemon-reload
+sudo systemctl enable websocket-app
+sudo systemctl start websocket-app
+```
+
+#### Option 2: Manual service setup
 ```bash
 # 1. Install dependencies
 pip install -r requirements.txt
 
-# 2. Set up systemd service
-sudo cp websocket-app.service /etc/systemd/system/
+# 2. Update the service file with your actual directory
+sudo sed "s|__APP_DIR__|$(pwd)|g" websocket-app.service > /etc/systemd/system/websocket-app.service
 sudo systemctl daemon-reload
 sudo systemctl enable websocket-app
 sudo systemctl start websocket-app
@@ -152,9 +166,11 @@ If you encounter WebSocket connection issues on Windows:
 ├── start_windows.bat         # Windows batch file for easy startup
 ├── start_linux.sh            # Linux startup script
 ├── deploy_linux.sh           # Linux production deployment script
-├── websocket-app.service     # Systemd service configuration
+├── generate_service.sh       # Generate systemd service with correct paths
+├── websocket-app.service     # Systemd service template
 ├── nginx.conf                # Nginx configuration for production
 ├── requirements.txt          # Python dependencies
+├── requirements-linux.txt    # Optional Linux optimizations
 ├── static/
 │   └── index.html           # Frontend HTML page
 └── README.md               # This file
