@@ -1,0 +1,15 @@
+# Linux-specific performance optimizations
+# These packages may require compilation and are optional
+# If installation fails, the application will still work with standard dependencies
+
+# High-performance event loop (Linux only)
+uvloop==0.19.0
+
+# Fast HTTP parsing (optional)
+httptools==0.6.1
+
+# Additional production tools
+gunicorn==21.2.0
+
+# Note: These packages require compilation and may fail on some systems
+# The application will work fine without them using standard alternatives

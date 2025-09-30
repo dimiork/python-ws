@@ -1,0 +1,7 @@
+2025-10-01 01:15:13,591 - __main__ - INFO - Starting WebSocket server for Linux...
+2025-10-01 01:15:13,592 - __main__ - INFO - CPU cores: 12, Workers: 8
+2025-10-01 01:15:13,592 - __main__ - INFO - Server will be available at: http://localhost:8000
+2025-10-01 01:15:13,592 - __main__ - INFO - WebSocket endpoint: ws://localhost:8000/ws
+2025-10-01 01:15:13,592 - __main__ - INFO - Press Ctrl+C to stop the server
+2025-10-01 01:15:13,592 - __main__ - INFO - Using uvloop for high-performance event loop
+2025-10-01 01:15:13,592 - __main__ - INFO - Using httptools for fast HTTP parsing
